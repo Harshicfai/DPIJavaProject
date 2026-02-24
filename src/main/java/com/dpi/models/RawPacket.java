@@ -1,16 +1,14 @@
 package com.dpi.models;
 
-import java.time.Instant;
-
 public class RawPacket {
     private byte[] data;
     private int length;
-    private Instant timestamp;
+    private long timestamp;
 
-    public RawPacket(byte[] data, int length) {
+    public RawPacket(byte[] data, int length, long timestamp) {
         this.data = data;
         this.length = length;
-        this.timestamp = Instant.now();
+        this.timestamp = timestamp;
     }
 
     public byte[] getData() {
@@ -29,16 +27,11 @@ public class RawPacket {
         this.length = length;
     }
 
-    public Instant getTimestamp() {
+    public long getTimestamp() {
         return timestamp;
     }
 
-    @Override
-    public String toString() {
-        return "RawPacket{" +
-                "data=" + data +
-                ", length=" + length +
-                ", timestamp=" + timestamp +
-                '}';
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }
